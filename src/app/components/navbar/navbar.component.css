@@ -1,0 +1,92 @@
+.header_main {
+    width: 100%;
+    height: 95vh;
+}
+
+.header_main_nav{
+    /* z-index: 1; */
+    width: 100%;
+    /* position: fixed; */
+}
+
+.nav {
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #202121;
+}
+
+.nav_svg {
+    width: 8rem;
+}
+
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    width: 100%;
+    height: 95vh;
+    background-color: black;
+    color: white;
+    font-family: 'Gotham HTF', sans-serif;
+}
+
+.header_tittle {
+    animation-duration: 1.5s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-bottom: 5%;
+        opacity: 0%;
+    }
+
+    to {
+        /* opacity: 100%; */
+        margin-top: 0%;
+    }
+}
+
+.header_tittle_span_tecnologia{
+    animation-duration: 3s;
+    animation-name: slidein;
+    position: absolute;
+}
+
+.header_tittle_span_sobre{
+    opacity: 10%;
+    animation-duration: 6s;
+    animation-name: slidein;
+
+
+    position: relative;
+    left: -2rem;
+    bottom: 3rem;
+    font-size: 15rem;
+    font-weight: bold;
+}
+
+.progress_bar {
+    background-color: #ED145B;
+    height: 0.1rem;
+    width: 0;
+
+    animation-name: rotateAnimation;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-direction: alternate;
+    animation-timeline: scroll(block nearest);
+}
+
+@keyframes rotateAnimation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
