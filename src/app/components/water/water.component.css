@@ -7,13 +7,22 @@
     padding: 20px;
     font-size: 20px;
     line-height: 1.5;
+    background-color: black;
 }
 
 .background-container {
-    height: 110vh; /* Certifique-se de ter conteúdo suficiente para rolar */
+    background-color: black;
+    height: 100vh;
+    /* Certifique-se de ter conteúdo suficiente para rolar */
     transition: background-image 1ms;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
-  }
-  
+}
+
+@media screen and (max-width: 600px) {
+    .background-container{
+        overflow: hidden;
+        display: none;
+    }
+}

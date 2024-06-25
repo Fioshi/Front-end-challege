@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,27 +10,28 @@ import { Component, HostListener } from '@angular/core';
 })
 export class NavbarComponent {
 
-  // larguraInicialPercentual: number = 20; // Largura inicial da div em %
-  // larguraMaximaPercentual: number = 50; // Largura máxima que a div pode alcançar em %
+  @ViewChild('progressBar') progressBar!: ElementRef;
 
-  // @HostListener('window:scroll', [])
-  // onWindowScroll() {
-  //   // Calcula a nova largura baseada na posição vertical da janela
-  //   let scrollPosition = window.scrollY;
-  //   this.atualizarLargura(scrollPosition);
-  // }
+  larguraInicialPercentual: number = 0; 
+  larguraMaximaPercentual: number = 100;
 
-  // private atualizarLargura(scrollPosition: number) {
-  //   // Altura total do conteúdo rolável da página
-  //   let scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    let scrollPosition = window.scrollY;
+    this.atualizarLargura(scrollPosition);
+  }
 
-  //   // Calcula a porcentagem de rolagem
-  //   let scrollPercentage = (scrollPosition / scrollHeight) * 100;
+  private atualizarLargura(scrollPosition: number) {
 
-  //   // Calcula a largura em porcentagem com base na porcentagem de rolagem
-  //   this.larguraInicialPercentual = Math.min(this.larguraMaximaPercentual, 20 + scrollPercentage);
-  // }
-
-
-
+    const bar = this.progressBar.nativeElement;
+  
+    let scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  
+    let scrollPercentage = (scrollPosition / scrollHeight) * 100;
+  
+    let novaLarguraPercentual = Math.min(this.larguraMaximaPercentual, this.larguraInicialPercentual + scrollPercentage);
+  
+    bar.style.width = `${novaLarguraPercentual}%`;
+    
+  }
 }

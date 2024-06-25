@@ -1,15 +1,17 @@
 .header_main {
     width: 100%;
-    height: 95vh;
+    height: 100vh;
+    background-color: black;
 }
 
-.header_main_nav{
-    /* z-index: 1; */
+.header_main_nav {
+    z-index: 1;
     width: 100%;
-    /* position: fixed; */
+    position: fixed;
 }
 
 .nav {
+    width: 100%;
     height: 3rem;
     display: flex;
     justify-content: center;
@@ -25,7 +27,7 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    text-align: center;
     font-size: 5rem;
     width: 100%;
     height: 95vh;
@@ -36,36 +38,28 @@
 
 .header_tittle {
     animation-duration: 1.5s;
-    animation-name: slidein;
+    animation-name: fadeIn;
+    width: 100%;
 }
 
-@keyframes slidein {
-    from {
-        margin-bottom: 5%;
-        opacity: 0%;
-    }
-
-    to {
-        /* opacity: 100%; */
-        margin-top: 0%;
-    }
-}
-
-.header_tittle_span_tecnologia{
+.header_tittle_span_tecnologia {
     animation-duration: 3s;
     animation-name: slidein;
     position: absolute;
+    left: 6em;
+    width: 30%;
+    height: 95vh;
+    overflow: hidden;
 }
 
-.header_tittle_span_sobre{
+.header_tittle_span_sobre {
     opacity: 10%;
     animation-duration: 6s;
     animation-name: slidein;
-
-
+    width: 50%;
     position: relative;
     left: -2rem;
-    bottom: 3rem;
+    bottom: 7rem;
     font-size: 15rem;
     font-weight: bold;
 }
@@ -73,18 +67,59 @@
 .progress_bar {
     background-color: #ED145B;
     height: 0.1rem;
-    width: 0;
-
-    animation: appar 1ms ;
+    width: 0%;
+    animation: appar 1ms;
     animation-name: rotateAnimation;
     animation-timeline: scroll();
 }
 
-@keyframes rotateAnimation {
-    from {
-      width: 10;
+@media screen and (max-width: 600px) {
+    .header_main {
+        height: 45vh;
     }
-    to {
-      width: calc(1000000);
+
+    .header {
+        font-size: 5rem;
+        width: 100%;
+        height: 75vh;
+        background-color: black;
+        color: white;
+        font-family: 'Gotham HTF', sans-serif;
+        position: absolute;
     }
-  }
+
+    .header_tittle {
+        font-size: 36px;
+        width: 110%;
+        animation-duration: 1.5s;
+        animation-name: fadeIn;
+    }
+
+    .header_tittle_span_tecnologia {
+        height: 100%;
+        width: 100%;
+        left: -2em;
+    }
+
+    .header_tittle_span_sobre {
+        width: 1px;
+        height: 100%;
+        font-size: 9rem;
+        left: 50px;
+        position: relative;
+        bottom: 230px;
+    }
+
+    .header_tittle_span_sobre_mq {
+        width: 1px;
+        font-size: 9rem;
+        right: 210px;
+        position: absolute;
+        top: 130px;
+    }
+
+    .header_tittle_text {
+        position: relative;
+        bottom: 50px;
+    }
+}

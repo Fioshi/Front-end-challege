@@ -18,19 +18,8 @@ export class WaterComponent implements OnInit {
   constructor(private elRef: ElementRef) {
     this.generateBackgrounds();
   }
-
-  ngOnInit() {
-    // const observer = new IntersectionObserver((entries) => {
-    //   entries.forEach((entry) => {
-    //     if (entry.isIntersecting) {
-    //       this.generateBackgrounds();
-    //       observer.unobserve(entry.target);
-    //       console.log(entry.target)
-    //     }
-    //   });
-    // });
-
-    // observer.observe(this.elementToAnimate.nativeElement);
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
   private alreadyExecuted = false;
@@ -41,7 +30,7 @@ export class WaterComponent implements OnInit {
     this.checkIfIsVisible()
   }
 
-  private checkIfIsVisible(){
+  private checkIfIsVisible() {
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -65,15 +54,19 @@ export class WaterComponent implements OnInit {
 
   private updateBackground(): void {
     const container = this.elRef.nativeElement.querySelector('.background-container');
+    const containerTop = container.offsetTop;
+    const containerHeight = container.offsetHeight;
     const scrollPosition = window.scrollY;
-    const maxScroll = document.body.scrollHeight - window.innerHeight;
-    const scrollPercentage = scrollPosition / maxScroll;
-    const backgroundIndex = ((Math.floor(scrollPercentage * 200)) - 100)
+  
+    const relativeScrollPosition = Math.max(0, Math.min(scrollPosition - containerTop + window.innerHeight, containerHeight));
+  
+    const scrollPercentage = relativeScrollPosition / containerHeight;
+    const backgroundIndex = Math.floor(scrollPercentage * (this.backgrounds.length - 1)); // Assumindo que this.backgrounds é uma lista de imagens
     const imagePath = this.backgrounds[backgroundIndex];
-    console.log(imagePath)
-    console.log(backgroundIndex)
-
-    // Verificar se a imagem existe
+    
+    console.log(imagePath);
+    console.log(backgroundIndex);
+  
     const img = new Image();
     img.src = imagePath;
     img.onload = () => {

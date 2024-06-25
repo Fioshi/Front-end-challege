@@ -1,4 +1,53 @@
-.main {
-    height: 95vh;
-    width: 100%;
-}
+.cursos-container {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  
+  .subtitulo {
+    font-size: 1.5rem;
+    color: #e6007e;
+  }
+  
+  .categoria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .categoria h2 {
+    font-size: 2rem;
+  }
+  
+  .toggle-button {
+    background-color: #e6007e;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .curso-lista {
+    margin-top: 20px;
+  }
+  
+  .curso-item {
+    border-bottom: 1px solid #333;
+    padding: 10px 0;
+  }
+  
+  .curso-tipo {
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  .curso-nome {
+    font-size: 1.2rem;
+  }
+  
